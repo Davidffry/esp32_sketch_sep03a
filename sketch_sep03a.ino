@@ -8,6 +8,9 @@
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 int delayval = 75; // delay for half a second
+int red = 255;
+int green = 50;
+int blue = 0;
 
 void setup() 
 {
@@ -16,10 +19,10 @@ void setup()
 
 void loop() 
 {
-//  left();
-//  pixels.clear();
-//  right();
-  white();
+  left();
+  pixels.clear();
+  right();
+//  white();
   pixels.clear();
 }
 void white()
@@ -42,20 +45,20 @@ void white()
 }
 void left()
 {
-    for(int i=0;i<7;i++)
+    for(int i=0;i<NUMPIXELS;i++)
   {
     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-    pixels.setPixelColor(i, pixels.Color(255,75,0)); // Moderately bright green color.
+    pixels.setPixelColor(i, pixels.Color(red,green,blue)); // Moderately bright green color.
     pixels.show(); // This sends the updated pixel color to the hardware.
     delay(delayval); // Delay for a period of time (in milliseconds).
   }
 }
 void right()
 {
-    for(int i=12;i>=5;i--)
+    for(int i=NUMPIXELS;i>=0;i--)
   {
     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-    pixels.setPixelColor(i, pixels.Color(255,75,0)); // Moderately bright green color.
+    pixels.setPixelColor(i, pixels.Color(red,green,blue)); // Moderately bright green color.
     pixels.show(); // This sends the updated pixel color to the hardware.
     delay(delayval); // Delay for a period of time (in milliseconds).
   }
